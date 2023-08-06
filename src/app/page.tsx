@@ -4,9 +4,9 @@ import { Canvas } from '@react-three/fiber'
 import {useFrame} from '@react-three/fiber'
 import {useRef, useLayoutEffect} from "react"
 import CustomOrbitControls from './components/OrbitControls'
-import Room1 from '../Room1'
-import Room2 from "../Room2"
-import Room3 from "../Room3"
+import Room1 from '../RoomCamera1'
+import Room2 from "../RoomCamera2"
+import Room3 from "../RoomCamera3"
 import { useThree } from '@react-three/fiber'
 import RoomsContext from './components/Rooms'
 
