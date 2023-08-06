@@ -44,11 +44,16 @@ export default function Model(props) {
 
       // Scale other objects back to their original scale
       const otherObjects = scene.children.filter(obj => obj !== hoveredObject);
-      resetScale(otherObjects);
-    } else {
-      // If no object is hovered, reset scale for all objects
-      resetScale(scene.children);
-    }
+      gsap.to(intersects[0].object.scale, {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 0.5,
+        delay: 0.5, // Delay the scaling back animation
+        ease: 'power2.inOut',
+      }); 
+      
+    }  
   }
 
   useEffect(() => {

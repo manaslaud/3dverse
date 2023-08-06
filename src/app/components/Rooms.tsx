@@ -8,7 +8,7 @@ import Room1 from '../../RoomCamera1';
 import Room2 from '../../RoomCamera2';
 import Room3 from '../../RoomCamera3';
 import * as THREE from 'three'
-
+import { Overlay } from './Overlay';
 function Rooms() {
 //     useFrame(({ mouse, camera }) => {
 //     camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 0.5, 0.03)
@@ -37,12 +37,14 @@ function Rooms() {
 
   return (
    <>
-   <ScrollControls pages={2.1}>
+   <ScrollControls pages={3.1}>
     <Scroll>
         <Room1 />
+        
         <Room2 />
         <Room3 />
     </Scroll>
+    <Overlay/>
    </ScrollControls>
        
         </>
