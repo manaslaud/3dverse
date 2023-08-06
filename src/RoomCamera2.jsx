@@ -23,7 +23,7 @@ export default function Model(props) {
   }
 
   function resetScale(objects) {
-    gsap.to(objects, {
+    gsap.to(objects.scale, {
       x: 1,
       y: 1,
       z: 1,
@@ -64,7 +64,7 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-      <group position={[0, -3.26, -2]} rotation={[Math.PI, 0, Math.PI]} scale={0.01}>
+      <group position={[-3.5, -3.99, -1]} rotation={[Math.PI, Math.PI+2, Math.PI]} scale={0.01}>
         <group position={[-105.441, -155.628, -73.173]}>
           <mesh geometry={nodes.Dumbell1_Colors_0.geometry} material={materials['Colors.003']} position={[-125.537, 80, 60]} rotation={[0, 0, 1.309]} />
           <mesh geometry={nodes.Dumbell10_Colors_0.geometry} material={materials['Colors.003']} position={[-125.537, 45, 10]} rotation={[0, 0, 1.309]} />

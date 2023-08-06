@@ -37,7 +37,7 @@ function Rooms() {
 
   return (
    <>
-   <ScrollControls pages={3.1}>
+   <ScrollControls pages={2.95}>
     <Scroll>
         <Room1 />
         

@@ -9,7 +9,7 @@ export default function Home() {
 
   return (
     <div className='w-screen h-screen'>
-    <Canvas camera={{fov:80}}>
+    <Canvas camera={{fov:56}}>
       <ambientLight/>
       <rectAreaLight position={[0,0,5]} color="red" width={10} height={10}/>
       {/* <Room1/>
