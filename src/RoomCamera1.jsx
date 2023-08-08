@@ -68,7 +68,7 @@ export default function Model(props) {
   console.log(props)
   return (
     <group {...props} dispose={null}>
-    <group position={[ (props.props<0.5?1.5-props.props/2:3-props.props),-1,-0.5]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*props.props}>
+    <group position={[ (props.props<0.5?1.1-props.props/2:3-props.props),-1,-0.5]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*props.props}>
       <group position={[-21.788, 0, 16.031]} rotation={[0, -0.272, 0]}>
         <mesh geometry={nodes.Leg14_Colors_0.geometry} material={materials['Colors.005']} position={[350, -269.5, -65.172]} />
         <mesh geometry={nodes.Leg15_Colors_0.geometry} material={materials['Colors.005']} position={[350, -269.5, -65.172]} />
