@@ -12,16 +12,16 @@ type SectionProps = {
 const Section = (props: SectionProps) => {
   return (
     <section
-      className={`h-screen flex flex-col justify-center p-10 ${
+      className={`h-screen flex flex-col justify-center px-5 ${
         props.right ? "items-end" : "items-start"
       }`}
       style={{
         opacity: props.opacity,
       }}
     >
-      <div className="w-1/2 flex items-center justify-center">
+      <div className="w-1/2 h-full flex items-center justify-center">
         <div className="max-w-sm w-full">
-          <div className="bg-white  rounded-lg px-8 py-12">
+          <div className="bg-white  rounded-lg px-4 py-2">
             {props.children}
           </div>
         </div>
@@ -44,55 +44,63 @@ export const Overlay = () => {
 
   return (
     <Scroll html>
-      <div className="w-screen">
+      <div className="w-screen absolute">
         <Section right={false} opacity={opacityFirstSection}>
-          <h1 className="font-semibold font-serif text-2xl">
-            Hello, I'm Wawa Sensei
+          <h1 className="font-semibold font-serif text-2xl text-black">
+            Hello,I'm Manas
           </h1>
-          <p className="text-gray-500">Welcome to my beautiful portfolio</p>
-          <p className="mt-3">I know:</p>
+          <p className="text-gray-500 font-medium">I'm a:</p>
           <ul className="leading-9">
-            <li className="text-gray-500">🧑‍💻 How to code</li>
-            <li className="text-gray-500">🧑‍🏫 How to learn</li>
-            <li className="text-gray-500">📦 How to deliver</li>
+            <li className="text-gray-500">🧑‍💻 Frontend Developer </li>
+            <li className="text-gray-500">🧑‍🏫 3D Artist </li>
+            <li className="text-gray-500">📦 UI/UX Designer</li>
           </ul>
-          <p className="animate-bounce  mt-6">↓</p>
+          <p className="animate-bounce text-black text-[25px]">↓</p>
         </Section>
         <Section right opacity={opacitySecondSection}>
-          <h1 className="font-semibold font-serif text-2xl">
+          <h1 className="font-semibold font-serif text-2xl text-black">
             Here are my skillsets 🔥
           </h1>
           <p className="text-gray-500">PS: I never test</p>
           <p className="mt-3">
-            <b>Frontend 🚀</b>
+            <b className="text-gray-500">Frontend🚀</b>
           </p>
           <ul className="leading-9">
-            <li className="text-gray-500">ReactJS</li>
-            <li className="text-gray-500" >React Native</li>
-            <li className="text-gray-500">VueJS</li>
-            <li className="text-gray-500">Tailwind</li>
+            <li className="text-gray-500">NextJs</li>
+            <li className="text-gray-500" >Tailwind</li>
+            <li className="text-gray-500">Three.js</li>
+            <li className="text-gray-500">React Three Fiber</li>
           </ul>
           <p className="mt-3">
-            <b className="text-gray-500">Backend 🔬</b>
+            <b className="text-gray-500">Design 🔬</b>
           </p>
           <ul className="leading-9">
-            <li className="text-gray-500">NodeJS</li>
-            <li className="text-gray-500">tRPC</li>
-            <li className="text-gray-500">NestJS</li>
-            <li className="text-gray-500">PostgreSQL</li>
+            <li className="text-gray-500">Blender</li>
+            <li className="text-gray-500">Figma</li>
           </ul>
-          <p className="animate-bounce  mt-6">↓</p>
+          <p className="animate-bounce text-black text-[25px]">↓</p>
         </Section>
         <Section right={false} opacity={opacityLastSection}>
-          <h1 className="font-semibold font-serif text-2xl">
-            🤙 Call me maybe?
+          <h1 className="font-semibold font-serif text-2xl text-black">
+            🤙 Get In Touch
           </h1>
-          <p className="text-gray-500">
-            I'm very expensive but you won't regret it
+          <p className="text-gray-500 mt-2">
+            Let's Connect
           </p>
-          <p className="mt-6 p-3 bg-slate-200 rounded-lg">
-            📞 <a href="tel:(+42) 4242-4242-424242">(+42) 4242-4242-424242</a>
+          <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
+          💯 <a href="https://profile-card-github.web.app/">Projects</a>
           </p>
+          <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
+            🥇<a href="https://github.com/manaslaud">Github</a>
+            
+          </p>
+          <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
+          🥈<a href="https://www.linkedin.com/in/manas-laud-5183a5254/">Linkedin</a>
+          </p>
+          <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
+          🥉<a href="https://www.behance.net/manaslaud">Behance</a>
+          </p>
+         
         </Section>
       </div>
     </Scroll>

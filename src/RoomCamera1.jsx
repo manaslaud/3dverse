@@ -11,6 +11,9 @@ export default function Model(props) {
   cameras[0].position.set(0, 0, 3);
   const raycaster = new Raycaster();
   const mouse = new Vector2();
+  const isLaptop=window.innerWidth>=1024 && window.innerWidth <=1440
+  const isTab=window.innerWidth>=768 && window.innerWidth <1024
+
 
   function scaleObject(object, scale) {
     gsap.to(object.scale, {
@@ -30,6 +33,7 @@ export default function Model(props) {
       duration: 0.5,
       ease: 'power2.out',
     });
+
   }
 
   function onHoverEvent(e) {
@@ -61,10 +65,10 @@ export default function Model(props) {
       window.removeEventListener('mousemove', onHoverEvent);
     };
   }, []);
-
+  console.log(props)
   return (
     <group {...props} dispose={null}>
-    <group position={[1, -1.2, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01}>
+    <group position={[ (props.props<0.5?1.5-props.props/2:3-props.props),-1,-0.5]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*props.props}>
       <group position={[-21.788, 0, 16.031]} rotation={[0, -0.272, 0]}>
         <mesh geometry={nodes.Leg14_Colors_0.geometry} material={materials['Colors.005']} position={[350, -269.5, -65.172]} />
         <mesh geometry={nodes.Leg15_Colors_0.geometry} material={materials['Colors.005']} position={[350, -269.5, -65.172]} />
