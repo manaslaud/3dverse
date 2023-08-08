@@ -88,7 +88,7 @@ export const Overlay = () => {
             Let&apos;s Connect
           </p>
           <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
-          💯 <a href="https://profile-card-github.web.app/">Projects</a>
+          💯 <a href="https://animation-text-6a3s.vercel.app/">Projects</a>
           </p>
           <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
             🥇<a href="https://github.com/manaslaud">Github</a>
