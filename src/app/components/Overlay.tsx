@@ -47,9 +47,9 @@ export const Overlay = () => {
       <div className="w-screen absolute">
         <Section right={false} opacity={opacityFirstSection}>
           <h1 className="font-semibold font-serif text-2xl text-black">
-            Hello,I'm Manas
+            Hello,I&apos;m Manas
           </h1>
-          <p className="text-gray-500 font-medium">I'm a:</p>
+          <p className="text-gray-500 font-medium">I&apos;m a:</p>
           <ul className="leading-9">
             <li className="text-gray-500">🧑‍💻 Frontend Developer </li>
             <li className="text-gray-500">🧑‍🏫 3D Artist </li>
@@ -85,7 +85,7 @@ export const Overlay = () => {
             🤙 Get In Touch
           </h1>
           <p className="text-gray-500 mt-2">
-            Let's Connect
+            Let&apos;s Connect
           </p>
           <p className="mt-2 p-3 bg-slate-200 text-black font-semibold rounded-lg">
           💯 <a href="https://profile-card-github.web.app/">Projects</a>
