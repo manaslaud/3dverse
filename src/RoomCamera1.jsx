@@ -7,7 +7,7 @@ import { Vector2 } from 'three/src/Three';
 import gsap from 'gsap';
 import { Html } from '@react-three/drei';
 export default function Model(props) {
-  const phoneScaleFactor=0.5
+  const phoneScaleFactor=0.55
   let scaleFactor=1;
   console.log(props.props)
   if(props.props==1){

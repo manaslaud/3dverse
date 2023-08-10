@@ -6,6 +6,7 @@ import { Overlay } from './components/Overlay'
 import RoomCamera2 from '../RoomCamera2'
 import RoomCamera3 from '../RoomCamera3'
 export default function Home() {
+  
   const isMobile= window.innerWidth>=320 && window.innerWidth<728
   const isTab= window.innerWidth>=728 && window.innerWidth<1024
   const isLaptop= window.innerWidth>=1024

@@ -8,7 +8,7 @@ import { Vector2 } from 'three/src/Three';
 import gsap from 'gsap';
 
 export default function Model(props) {
-  const phoneScaleFactor=0.45
+  const phoneScaleFactor=0.5
   let scaleFactor=1;
   console.log(props.props)
   if(props.props==1){
