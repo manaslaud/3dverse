@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className='w-screen h-screen'>
     <Canvas camera={{fov:58}} >
-    <ScrollControls pages={isMobile ? 3.2 : 3.1} >
+    <ScrollControls pages={isMobile ? 3.5 : 3.1} >
         <Scroll>
           <RoomCamera1 props={sw}/>
           <RoomCamera2 props={sw}/>
