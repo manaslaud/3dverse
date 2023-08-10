@@ -9,23 +9,25 @@ import { Html } from '@react-three/drei';
 export default function Model(props) {
   const phoneScaleFactor=0.55
   let scaleFactor=1;
-  console.log(props.props)
-  if(props.props==1){
-    scaleFactor=phoneScaleFactor * window.innerWidth/320
-  }
-  if(props.props==2){
-    scaleFactor=0.9
-  }
-  if(props.props==3){
-    scaleFactor=1
-  }
   const { scene,camera } = useThree();
   const { nodes,materials ,cameras } = useGLTF('/rooms/roomCamera1.glb');
   cameras[0].position.set(0, 0, 3);
   const raycaster = new Raycaster();
   const mouse = new Vector2();
-  const isLaptop=window.innerWidth>=1024 && window.innerWidth <=1440
-  const isTab=window.innerWidth>=768 && window.innerWidth <1024
+  useEffect(()=>{
+    if(props.props==1){
+      scaleFactor=phoneScaleFactor * window.innerWidth/320
+    }
+    if(props.props==2){
+      scaleFactor=0.9
+    }
+    if(props.props==3){
+      scaleFactor=1
+    }
+   
+    const isLaptop=window.innerWidth>=1024 && window.innerWidth <=1440
+    const isTab=window.innerWidth>=768 && window.innerWidth <1024
+  })
 
   
 

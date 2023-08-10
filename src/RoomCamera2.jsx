@@ -10,8 +10,13 @@ import gsap from 'gsap';
 export default function Model(props) {
   const phoneScaleFactor=0.5
   let scaleFactor=1;
-  console.log(props.props)
+  let width=1;
+useEffect(()=>{
+  width=window.innerWidth
   if(props.props==1){
+    const isMobile = window.innerWidth>=320 && window.innerWidth <425
+  const isTab = window.innerWidth>=425 && window.innerWidth <768
+  const isSLaptop=window.innerWidth>=1024 && window.innerWidth <=1440
     scaleFactor=phoneScaleFactor * window.innerWidth/320
   }
   if(props.props==2){
@@ -20,15 +25,15 @@ export default function Model(props) {
   if(props.props==3){
     scaleFactor=1
   }
+})
+  
 
   const { scene,camera } = useThree();
   const { nodes,materials ,cameras } = useGLTF('/rooms/roomCamera2.glb');
   cameras[0].position.set(0, 0, 3);
   const raycaster = new Raycaster();
   const mouse = new Vector2();
-  const isMobile = window.innerWidth>=320 && window.innerWidth <425
-  const isTab = window.innerWidth>=425 && window.innerWidth <768
-  const isSLaptop=window.innerWidth>=1024 && window.innerWidth <=1440
+  
   function scaleObject(object, scale) {
     gsap.to(object.scale, {
       x: scale,
@@ -81,7 +86,7 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-      <group position={[props.props>=2?-3*window.innerWidth/1100:-0.7 , props.props>=2?-6:-5, 0]} rotation={[Math.PI, Math.PI+2, Math.PI]} scale={0.01*scaleFactor}>
+      <group position={[props.props>=2?-3*width/1100:-0.7 , props.props>=2?-6:-5, 0]} rotation={[Math.PI, Math.PI+2, Math.PI]} scale={0.01*scaleFactor}>
         <group position={[-105.441, -155.628, -73.173]}>
           <mesh geometry={nodes.Dumbell1_Colors_0.geometry} material={materials['Colors.003']} position={[-125.537, 80, 60]} rotation={[0, 0, 1.309]} />
           <mesh geometry={nodes.Dumbell10_Colors_0.geometry} material={materials['Colors.003']} position={[-125.537, 45, 10]} rotation={[0, 0, 1.309]} />

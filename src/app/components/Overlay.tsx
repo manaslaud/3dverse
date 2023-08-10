@@ -1,7 +1,7 @@
 "use client"
 import { Scroll, useScroll } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { ReactNode } from "react";
 
 type SectionProps = {
@@ -33,16 +33,17 @@ const Section = (props: SectionProps) => {
 
 export const Overlay = () => {
   const scroll = useScroll();
-  const isMobile= window.innerWidth>=320 && window.innerWidth<728
-  const isTab= window.innerWidth>=728 && window.innerWidth<1024
-  const isLaptop= window.innerWidth>=1024
-  let sw=isMobile ? 1 : (isTab ? 2 : 3)
+  let isMobile=true;
+  let isTab=true;
+  useEffect(()=>{
+     isMobile= window.innerWidth>=320 && window.innerWidth<728
+     isTab= window.innerWidth>=728 && window.innerWidth<1024
+  })
+  
   const [opacityFirstSection, setOpacityFirstSection] = useState(1);
   const [opacitySecondSection, setOpacitySecondSection] = useState(1);
   const [opacityLastSection, setOpacityLastSection] = useState(1);
-  let style={
-    top: isMobile? '200px':'0px'
-  }
+ 
   useFrame(() => {
     setOpacityFirstSection(1 - scroll.range(0, 1 / 3));
     setOpacitySecondSection(scroll.curve(1 / 3, 1 / 3));

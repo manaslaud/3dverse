@@ -7,9 +7,9 @@ import { Vector2 } from 'three/src/Three';
 import gsap from 'gsap';
 
 export default function Model(props) {
-  const phoneScaleFactor=0.55
   let scaleFactor=1;
-  console.log(props.props)
+  useEffect(()=>{
+    const phoneScaleFactor=0.55
   if(props.props==1){
     scaleFactor=phoneScaleFactor * window.innerWidth/345
   }
@@ -19,11 +19,14 @@ export default function Model(props) {
   if(props.props==3){
     scaleFactor=1
   }
+  })
+  
   const { scene,camera } = useThree();
   const { nodes,materials ,cameras } = useGLTF('/rooms/roomCamera3.glb');
   cameras[0].position.set(0, 0, 3);
   const raycaster = new Raycaster();
   const mouse = new Vector2();
+  let width=0;
 
   function scaleObject(object, scale) {
     gsap.to(object.scale, {
@@ -70,6 +73,7 @@ export default function Model(props) {
   }
 
   useEffect(() => {
+    width=window.innerWidth
     window.addEventListener('mousemove', onHoverEvent);
     return () => {
       window.removeEventListener('mousemove', onHoverEvent);
@@ -78,7 +82,7 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-    <group position={[props.props>=2?1.45*window.innerWidth/1300:-0.1, props.props>=2?-13:-11.6, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*scaleFactor}>
+    <group position={[props.props>=2?1.45*width/1300:-0.1, props.props>=2?-13:-11.6, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*scaleFactor}>
       <group position={[65, 0, 40]} rotation={[-Math.PI, 0, -Math.PI]}>
         <group scale={[1, 1, 1.5]}>
           <group scale={[1, 1, 0.667]}>
