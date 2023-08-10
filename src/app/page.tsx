@@ -1,12 +1,10 @@
 "use client"
 import { Canvas, useFrame } from '@react-three/fiber'
-import CustomOrbitControls from './components/OrbitControls'
 import { ScrollControls,Scroll } from '@react-three/drei'
 import RoomCamera1 from '../RoomCamera1'
 import { Overlay } from './components/Overlay'
 import RoomCamera2 from '../RoomCamera2'
 import RoomCamera3 from '../RoomCamera3'
-import { useEffect } from 'react'
 export default function Home() {
   const isMobile= window.innerWidth>=320 && window.innerWidth<728
   const isTab= window.innerWidth>=728 && window.innerWidth<1024
@@ -27,7 +25,6 @@ export default function Home() {
         </ScrollControls>
       <ambientLight/>
       <rectAreaLight position={[0,0,5]} color="red" width={10} height={10}/>
-      <CustomOrbitControls/>
       </Canvas>
     </div>
   )
