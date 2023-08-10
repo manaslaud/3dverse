@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect } from 'react';
 import { useGLTF, OrthographicCamera } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
