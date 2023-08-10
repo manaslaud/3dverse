@@ -6,6 +6,18 @@ import { Vector2 } from 'three/src/Three';
 import gsap from 'gsap';
 
 export default function Model(props) {
+  const phoneScaleFactor=0.5
+  let scaleFactor=1;
+  console.log(props.props)
+  if(props.props==1){
+    scaleFactor=phoneScaleFactor * window.innerWidth/345
+  }
+  if(props.props==2){
+    scaleFactor=0.9
+  }
+  if(props.props==3){
+    scaleFactor=1
+  }
   const { scene,camera } = useThree();
   const { nodes,materials ,cameras } = useGLTF('/rooms/roomCamera3.glb');
   cameras[0].position.set(0, 0, 3);
@@ -65,7 +77,7 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-    <group position={[(props.props<0.5)?1.3-props.props:2.6-props.props, -12.0, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*props.props}>
+    <group position={[props.props>=2?1.45*window.innerWidth/1300:-0.1, props.props>=2?-13:-10.6, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*scaleFactor}>
       <group position={[65, 0, 40]} rotation={[-Math.PI, 0, -Math.PI]}>
         <group scale={[1, 1, 1.5]}>
           <group scale={[1, 1, 0.667]}>
