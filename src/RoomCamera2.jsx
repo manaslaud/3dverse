@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect } from 'react';
 import { useGLTF, OrthographicCamera } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
@@ -6,6 +8,19 @@ import { Vector2 } from 'three/src/Three';
 import gsap from 'gsap';
 
 export default function Model(props) {
+  const phoneScaleFactor=0.5
+  let scaleFactor=1;
+  console.log(props.props)
+  if(props.props==1){
+    scaleFactor=phoneScaleFactor * window.innerWidth/320
+  }
+  if(props.props==2){
+    scaleFactor=0.9
+  }
+  if(props.props==3){
+    scaleFactor=1
+  }
+
   const { scene,camera } = useThree();
   const { nodes,materials ,cameras } = useGLTF('/rooms/roomCamera2.glb');
   cameras[0].position.set(0, 0, 3);
@@ -62,11 +77,11 @@ export default function Model(props) {
     return () => {
       window.removeEventListener('mousemove', onHoverEvent);
     };
-  }, []);
+  });
 
   return (
     <group {...props} dispose={null}>
-      <group position={[props.props<0.4?-1.8+ props.props*props.props+0.4:-4.4*props.props , (props.props<0.5)?-3:-4.5, -0.2]} rotation={[Math.PI, Math.PI+2, Math.PI]} scale={0.01*props.props}>
+      <group position={[props.props>=2?-3*window.innerWidth/1100:-0.7 , props.props>=2?-6:-5, 0]} rotation={[Math.PI, Math.PI+2, Math.PI]} scale={0.01*scaleFactor}>
         <group position={[-105.441, -155.628, -73.173]}>
           <mesh geometry={nodes.Dumbell1_Colors_0.geometry} material={materials['Colors.003']} position={[-125.537, 80, 60]} rotation={[0, 0, 1.309]} />
           <mesh geometry={nodes.Dumbell10_Colors_0.geometry} material={materials['Colors.003']} position={[-125.537, 45, 10]} rotation={[0, 0, 1.309]} />

@@ -1,11 +1,24 @@
+"use client"
 import React, { useEffect } from 'react';
 import { useGLTF, OrthographicCamera } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 import { Raycaster } from 'three/src/Three';
 import { Vector2 } from 'three/src/Three';
 import gsap from 'gsap';
-
+import { Html } from '@react-three/drei';
 export default function Model(props) {
+  const phoneScaleFactor=0.55
+  let scaleFactor=1;
+  console.log(props.props)
+  if(props.props==1){
+    scaleFactor=phoneScaleFactor * window.innerWidth/320
+  }
+  if(props.props==2){
+    scaleFactor=0.9
+  }
+  if(props.props==3){
+    scaleFactor=1
+  }
   const { scene,camera } = useThree();
   const { nodes,materials ,cameras } = useGLTF('/rooms/roomCamera1.glb');
   cameras[0].position.set(0, 0, 3);
@@ -14,6 +27,7 @@ export default function Model(props) {
   const isLaptop=window.innerWidth>=1024 && window.innerWidth <=1440
   const isTab=window.innerWidth>=768 && window.innerWidth <1024
 
+  
 
   function scaleObject(object, scale) {
     gsap.to(object.scale, {
@@ -64,11 +78,11 @@ export default function Model(props) {
     return () => {
       window.removeEventListener('mousemove', onHoverEvent);
     };
-  }, []);
-  console.log(props)
+  });
   return (
     <group {...props} dispose={null}>
-    <group position={[ (props.props<0.5?1.1-props.props/2:3-props.props),-1,-0.5]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*props.props}>
+    
+    <group position={[ props.props === 1 ? -0.1 : props.props === 2 ? 0.7*window.innerWidth/770: 1.3* window.innerWidth/1410, props.props === 1 ? 0 :-1,0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*(scaleFactor)}>
       <group position={[-21.788, 0, 16.031]} rotation={[0, -0.272, 0]}>
         <mesh geometry={nodes.Leg14_Colors_0.geometry} material={materials['Colors.005']} position={[350, -269.5, -65.172]} />
         <mesh geometry={nodes.Leg15_Colors_0.geometry} material={materials['Colors.005']} position={[350, -269.5, -65.172]} />
