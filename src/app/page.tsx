@@ -1,4 +1,5 @@
 "use client"
+import { useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { ScrollControls,Scroll } from '@react-three/drei'
 import RoomCamera1 from '../RoomCamera1'
@@ -6,11 +7,17 @@ import { Overlay } from './components/Overlay'
 import RoomCamera2 from '../RoomCamera2'
 import RoomCamera3 from '../RoomCamera3'
 export default function Home() {
-  
-  const isMobile= window.innerWidth>=320 && window.innerWidth<728
-  const isTab= window.innerWidth>=728 && window.innerWidth<1024
-  const isLaptop= window.innerWidth>=1024
+  let isMobile= true
+  let isTab= true
+  let isLaptop= true
   let sw=isMobile ? 1 : (isTab ? 2 : 3)
+
+  useEffect(()=>{
+     isMobile= window.innerWidth>=320 && window.innerWidth<728
+     isTab= window.innerWidth>=728 && window.innerWidth<1024
+     isLaptop= window.innerWidth>=1024
+  })
+  
   
   
   return (
