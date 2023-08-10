@@ -78,7 +78,7 @@ export default function Model(props) {
     return () => {
       window.removeEventListener('mousemove', onHoverEvent);
     };
-  }, []);
+  });
   return (
     <group {...props} dispose={null}>
     
