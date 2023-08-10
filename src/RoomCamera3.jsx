@@ -77,7 +77,7 @@ export default function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-    <group position={[props.props>=2?1.45*window.innerWidth/1300:-0.1, props.props>=2?-13:-10.6, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*scaleFactor}>
+    <group position={[props.props>=2?1.45*window.innerWidth/1300:-0.1, props.props>=2?-13:-11.6, 0]} rotation={[Math.PI, 0, Math.PI]} scale={0.01*scaleFactor}>
       <group position={[65, 0, 40]} rotation={[-Math.PI, 0, -Math.PI]}>
         <group scale={[1, 1, 1.5]}>
           <group scale={[1, 1, 0.667]}>

@@ -51,7 +51,7 @@ export const Overlay = () => {
   return (
     <Scroll html>
       <div className="w-screen absolute" style={
-        {top:isMobile?'350px':'0px'}
+        {top:isMobile?'300px':'0px'}
       }>
         <Section right={false} opacity={opacityFirstSection}>
           <h1 className="font-semibold font-serif text-2xl text-black">
